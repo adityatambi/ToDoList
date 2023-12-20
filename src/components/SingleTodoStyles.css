@@ -44,5 +44,9 @@
         width: 95%;
         margin-bottom: 10px;
     }
-    
+
+}
+
+.drag {
+    box-shadow: 0 0 20px black;
 }
