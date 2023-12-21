@@ -4,7 +4,6 @@ import InputField from "./components/InputField";
 import { Todo } from "./model";
 import TodoList from "./components/TodoList";
 import { DragDropContext, DropResult } from "react-beautiful-dnd";
-import { compileFunction } from "vm";
 
 const App: React.FC = () => {
   const [todo, setTodo] = useState<string>("");
@@ -46,9 +45,9 @@ const App: React.FC = () => {
     }
 
     if (destination.droppableId === "TodosList") {
-      active.splice(destination.index, 0, add);
+      active.splice(destination.index, 0, {...add, isDone: false});
     } else {
-      complete.splice(destination.index, 0, add);
+      complete.splice(destination.index, 0, {...add, isDone: true});
     }
 
     setCompletedTodos(complete);
